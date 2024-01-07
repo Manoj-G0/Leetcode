@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
-        unordered_map<long long,unordered_map<long long,long long>>mp;
+        vector<unordered_map<long long,long long>>mp(nums.size());
         unordered_set<long long>s(nums.begin(),nums.end());
         int ans=0;
         int n=nums.size();
@@ -16,6 +16,12 @@ public:
                 if(s.count(nums[i]+diff)) mp[i][diff]+=temp+1;
             }
         }
+        // for(auto i:mp){
+        //     for(auto j:i){
+        //         cout<<j.first<<": "<<j.second<<endl;
+        //     }
+        //     cout<<endl;
+        // }
         return ans;
     }
 };
